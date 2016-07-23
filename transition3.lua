@@ -62,7 +62,7 @@ function transition.complete( ... )
 	end
 end
 
-function transition.rewind( ... )
+function transition.restart( ... )
 	local ts = {}
 	-- gathering
 	if arg.n == 1 then

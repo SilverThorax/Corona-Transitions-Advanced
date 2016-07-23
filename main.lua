@@ -42,7 +42,7 @@ timer.performWithDelay( 1000, function()
 
 	-- transition.resume( t )
 
-	transition.rewind( t )
+	transition.restart( t )
 
 end )
 
@@ -55,7 +55,7 @@ timer.performWithDelay( 1600, function()
 	-- transition.complete( r )
 	-- transition.complete( 'truc' )
 
-	transition.rewind( t )
+	transition.restart( t )
 
 	-- transition.pause( t )
 
