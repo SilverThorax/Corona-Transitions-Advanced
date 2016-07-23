@@ -75,8 +75,6 @@ transition.restart( displayObject )
 transition.restart( tagName )
 ```
 
-NB: the initial values are set and if defined, the onComplete callback is called. Then the transition is terminated.
-
 
 License
 -------
