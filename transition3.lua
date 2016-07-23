@@ -48,7 +48,7 @@ function transition.complete( ... )
 	end
 end
 
-function transition.restart( ... )
+function transition.rewind( ... )
 	local ts = {}
 	-- gathering
 	if arg.n == 1 then
@@ -87,9 +87,6 @@ function transition.restart( ... )
 			end
 			-- reset timer
 			t._timeStart = system.getTimer()
-			-- start callback
-			local callback = t._onStart
-			if callback then pcall( callback ) end
 		end
 	end
 end
