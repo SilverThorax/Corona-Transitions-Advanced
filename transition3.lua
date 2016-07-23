@@ -33,9 +33,6 @@ function transition.complete( ... )
 	-- processing
 	if #ts > 0 then
 		for i,t in ipairs(ts) do
-			-- prevent pause callback from being called
-			if t._onPause then t._onPause = nil end
-			transition.pause( t )
 			-- set final values
 			for k,v in pairs( t._keysFinish ) do
 				t._target[k] = v
@@ -84,32 +81,12 @@ function transition.restart( ... )
 	-- processing
 	if #ts > 0 then
 		for i,t in ipairs(ts) do
-			-- save pause callback but prevent it from being called
-			local _pauseCallback = nil
-			if t._onPause then
-				_pauseCallback = t._onPause
-				t._onPause = nil
-			end
-			transition.pause( t )
-			if _pauseCallback then
-				t._onPause = _pauseCallback
-			end
 			-- set initial values
 			for k,v in pairs( t._keysStart ) do
 				t._target[k] = v
 			end
 			-- reset timer
 			t._timeStart = system.getTimer()
-			-- save pause callback but prevent it from being called
-			local _resumeCallback = nil
-			if t._onResume then
-				_resumeCallback = t._onResume
-				t._onResume = nil
-			end
-			transition.resume( t )
-			if _resumeCallback then
-				t._onResume = _resumeCallback
-			end
 			-- start callback
 			local callback = t._onStart
 			if callback then pcall( callback ) end

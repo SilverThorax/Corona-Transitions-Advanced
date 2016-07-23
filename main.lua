@@ -53,11 +53,11 @@ timer.performWithDelay( 1600, function()
 	-- transition.complete( t )
 	-- transition.complete()
 	-- transition.complete( r )
-	-- transition.complete( 'truc' )
+	transition.complete( 'truc' )
 
 	-- transition.restart( t )
 
-	transition.pause( t )
+	-- transition.pause( t )
 
 end )
 
