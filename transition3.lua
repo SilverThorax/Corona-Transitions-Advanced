@@ -1,23 +1,17 @@
 transition.version = 3
 
-local funcs = { 'to' }
+transition.to2 = transition.to
 
-for i,f in ipairs( funcs ) do
-
-	transition[f..'2'] = transition[f]
-
-	transition[f] = function ( ... )
-		local _onStartCopy = nil
-		if arg.n > 1 and arg[2].onStart then
-			_onStartCopy = arg[2].onStart
-		end
-		local t = transition[f..'2']( unpack( arg ) )
-		if _onStartCopy then
-			t._onStartCopy = _onStartCopy
-		end
-		return t
+transition.to = function ( ... )
+	local _onStartCopy = nil
+	if arg.n > 1 and arg[2].onStart then
+		_onStartCopy = arg[2].onStart
 	end
-
+	local t = transition.to2( unpack( arg ) )
+	if _onStartCopy then
+		t._onStartCopy = _onStartCopy
+	end
+	return t
 end
 
 function transition.complete( ... )
