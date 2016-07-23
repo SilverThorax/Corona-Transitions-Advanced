@@ -1,5 +1,25 @@
 transition.version = 3
 
+local funcs = { 'to' }
+
+for i,f in ipairs( funcs ) do
+
+	transition[f..'2'] = transition[f]
+
+	transition[f] = function ( ... )
+		local _onStartCopy = nil
+		if arg.n > 1 and arg[2].onStart then
+			_onStartCopy = arg[2].onStart
+		end
+		local t = transition[f..'2']( unpack( arg ) )
+		if _onStartCopy then
+			t._onStartCopy = _onStartCopy
+		end
+		return t
+	end
+
+end
+
 function transition.complete( ... )
 	local ts = {}
 	-- gathering
@@ -87,6 +107,9 @@ function transition.rewind( ... )
 			end
 			-- reset timer
 			t._timeStart = system.getTimer()
+			-- start callback
+			local callback = t._onStartCopy
+			if callback then pcall( callback ) end
 		end
 	end
 end
