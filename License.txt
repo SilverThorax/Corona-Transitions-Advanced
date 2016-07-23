@@ -1,5 +1,5 @@
-Lua Units is a Lua module for the conversion of quantities between different unit measures.
-Copyright (C) 2015  David Roulin Ltd.
+Corona Transitions Advanced is a Corona SDK library hack meant to provide advanced features to developers in a transparent way (by invisibly wrapping code over the original 'transition' library instead of providing a new one).
+Copyright (C) 2016  David Roulin.
 
 This program is free software; you can redistribute it and/or modify
 it under the terms of the GNU General Public License as published by

@@ -14,7 +14,10 @@ require( "transition3" )
 
 local myRectangle = display.newRect( 100, 100, 50, 50 )
 
-local myTransition = transition.to( myRectangle, { x = 300, y = 700, time = 5000, onComplete = function() myRectangle:setFillColor( 1,0,0 ) end } )
+local myTransition = transition.to(
+	myRectangle,
+	{ x = 300, y = 700, time = 5000, onComplete = function() myRectangle:setFillColor( 1,0,0 ) end }
+)
 
 timer.performWithDelay( 2000, function()
 	transition.complete( myTransition )
@@ -79,8 +82,8 @@ License
 -------
 
 
-Lua Units is a Lua module for the conversion of quantities between different unit measures.
-Copyright (C) 2015  David Roulin Ltd.
+Corona Transitions Advanced is a Corona SDK library hack meant to provide advanced features to developers in a transparent way (by invisibly wrapping code over the original 'transition' library instead of providing a new one).
+Copyright (C) 2016  David Roulin.
 
 This program is free software; you can redistribute it and/or modify
 it under the terms of the GNU General Public License as published by
